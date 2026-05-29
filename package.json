@@ -1,0 +1,49 @@
+{
+  "name": "qavo-fe",
+  "version": "0.0.0",
+  "description": "Qavo Frontend — a reusable, plugin-oriented Angular application platform.",
+  "license": "Apache-2.0",
+  "private": true,
+  "packageManager": "npm@10.9.3",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve qavo-reference-app",
+    "build": "ng build",
+    "build:libs": "ng build qavo-theming && ng build qavo-core && ng build qavo-http && ng build qavo-ui && ng build qavo-testing && ng build qavo-auth-login && ng build qavo-auth-registration",
+    "build:app": "ng build qavo-reference-app",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "e2e": "playwright test",
+    "lint": "ng lint"
+  },
+  "dependencies": {
+    "@angular/cdk": "^21.2.0",
+    "@angular/common": "^21.2.0",
+    "@angular/compiler": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0",
+    "@angular/material": "^21.2.0",
+    "@angular/platform-browser": "^21.2.0",
+    "@angular/router": "^21.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.2.0",
+    "@angular/cli": "^21.2.13",
+    "@angular/compiler-cli": "^21.2.0",
+    "@playwright/test": "^1.49.0",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.4.0",
+    "jsdom": "^28.0.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^21.2.0",
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.8"
+  }
+}

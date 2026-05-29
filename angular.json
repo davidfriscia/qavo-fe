@@ -1,0 +1,258 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "cli": {
+    "packageManager": "npm"
+  },
+  "newProjectRoot": "projects",
+  "projects": {
+    "qavo-core": {
+      "projectType": "library",
+      "root": "projects/qavo-core",
+      "sourceRoot": "projects/qavo-core/src",
+      "prefix": "qavo",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/qavo-core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/qavo-core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/qavo-core/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "qavo-theming": {
+      "projectType": "library",
+      "root": "projects/qavo-theming",
+      "sourceRoot": "projects/qavo-theming/src",
+      "prefix": "qavo",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/qavo-theming/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/qavo-theming/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/qavo-theming/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "qavo-http": {
+      "projectType": "library",
+      "root": "projects/qavo-http",
+      "sourceRoot": "projects/qavo-http/src",
+      "prefix": "qavo",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/qavo-http/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/qavo-http/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/qavo-http/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "qavo-ui": {
+      "projectType": "library",
+      "root": "projects/qavo-ui",
+      "sourceRoot": "projects/qavo-ui/src",
+      "prefix": "qavo",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/qavo-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/qavo-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/qavo-ui/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "qavo-testing": {
+      "projectType": "library",
+      "root": "projects/qavo-testing",
+      "sourceRoot": "projects/qavo-testing/src",
+      "prefix": "qavo",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/qavo-testing/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/qavo-testing/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/qavo-testing/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "qavo-auth-login": {
+      "projectType": "library",
+      "root": "projects/qavo-auth-login",
+      "sourceRoot": "projects/qavo-auth-login/src",
+      "prefix": "qavo",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/qavo-auth-login/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/qavo-auth-login/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/qavo-auth-login/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "qavo-auth-registration": {
+      "projectType": "library",
+      "root": "projects/qavo-auth-registration",
+      "sourceRoot": "projects/qavo-auth-registration/src",
+      "prefix": "qavo",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/qavo-auth-registration/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/qavo-auth-registration/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/qavo-auth-registration/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "qavo-reference-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/qavo-reference-app",
+      "sourceRoot": "projects/qavo-reference-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/qavo-reference-app/src/main.ts",
+            "tsConfig": "projects/qavo-reference-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/qavo-reference-app/public"
+              }
+            ],
+            "styles": ["projects/qavo-reference-app/src/styles.scss"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "qavo-reference-app:build:production"
+            },
+            "development": {
+              "buildTarget": "qavo-reference-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    }
+  }
+}

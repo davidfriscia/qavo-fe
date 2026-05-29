@@ -1,0 +1,18 @@
+{
+  "name": "@qavo/testing",
+  "version": "0.0.0",
+  "description": "Qavo testing utilities — reusable harnesses, mocks and fixtures for platform-aware unit and component tests.",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/davidfriscia/qavo-fe",
+  "peerDependencies": {
+    "@angular/common": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@qavo/core": "^0.0.0",
+    "@qavo/theming": "^0.0.0",
+    "rxjs": "^7.8.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

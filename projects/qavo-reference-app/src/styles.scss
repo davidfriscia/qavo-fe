@@ -1,0 +1,45 @@
+/*
+ * Global baseline for the reference application.
+ *
+ * The Qavo theming engine writes every design token as a CSS custom property on
+ * the document root at runtime, so this stylesheet only needs to consume those
+ * tokens for the document-level surface and typography. Applications keep their
+ * global CSS this thin because all visual decisions live in tokens and
+ * components.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--qavo-typography-font-size-root, 16px);
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--qavo-typography-font-family-base, system-ui, sans-serif);
+  font-size: var(--qavo-typography-font-size-md, 1rem);
+  line-height: var(--qavo-typography-line-height-normal, 1.5);
+  color: var(--qavo-color-text-primary, #1a1d23);
+  background: var(--qavo-color-background, #f6f7f9);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--qavo-typography-font-family-heading, inherit);
+  line-height: var(--qavo-typography-line-height-tight, 1.2);
+}
+
+a {
+  color: var(--qavo-color-link);
+}
+
+:focus-visible {
+  outline: none;
+}

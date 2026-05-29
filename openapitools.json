@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "7.11.0",
+    "generators": {
+      "qavo-reference-api": {
+        "generatorName": "typescript-angular",
+        "input-spec": "http://localhost:8080/v3/api-docs",
+        "output": "projects/qavo-reference-app/src/app/api/generated",
+        "additionalProperties": {
+          "ngVersion": "21.0.0",
+          "providedInRoot": true,
+          "withInterceptorAuth": false,
+          "fileNaming": "kebab-case"
+        }
+      }
+    }
+  }
+}

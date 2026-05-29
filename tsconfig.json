@@ -1,0 +1,84 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "experimentalDecorators": true,
+    "paths": {
+      "@qavo/auth-login": ["./dist/qavo-auth-login"],
+      "@qavo/auth-registration": ["./dist/qavo-auth-registration"],
+      "@qavo/core": ["./dist/qavo-core"],
+      "@qavo/http": ["./dist/qavo-http"],
+      "@qavo/testing": ["./dist/qavo-testing"],
+      "@qavo/theming": ["./dist/qavo-theming"],
+      "@qavo/ui": ["./dist/qavo-ui"]
+    },
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve"
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/qavo-core/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/qavo-core/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/qavo-theming/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/qavo-theming/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/qavo-http/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/qavo-http/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/qavo-ui/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/qavo-ui/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/qavo-testing/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/qavo-testing/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/qavo-auth-login/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/qavo-auth-login/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/qavo-auth-registration/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/qavo-auth-registration/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/qavo-reference-app/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/qavo-reference-app/tsconfig.spec.json"
+    }
+  ]
+}
