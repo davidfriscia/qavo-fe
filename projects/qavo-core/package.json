@@ -2,7 +2,7 @@
   "name": "@qavo/core",
   "version": "0.0.0",
   "description": "Qavo core platform — bootstrap, configuration, plugin registry, error handling, auth abstraction and routing conventions.",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "homepage": "https://github.com/davidfriscia/qavo-fe",
   "peerDependencies": {
     "@angular/common": "^21.2.0",

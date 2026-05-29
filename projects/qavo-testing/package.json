@@ -2,7 +2,7 @@
   "name": "@qavo/testing",
   "version": "0.0.0",
   "description": "Qavo testing utilities — reusable harnesses, mocks and fixtures for platform-aware unit and component tests.",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "homepage": "https://github.com/davidfriscia/qavo-fe",
   "peerDependencies": {
     "@angular/common": "^21.2.0",

@@ -209,4 +209,4 @@ status.
 
 ## License
 
-[Apache-2.0](LICENSE).
+[MIT](LICENSE).

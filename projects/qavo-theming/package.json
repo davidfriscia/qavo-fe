@@ -2,7 +2,7 @@
   "name": "@qavo/theming",
   "version": "0.0.0",
   "description": "Qavo theming engine — token-based, runtime-switchable themes built on CSS custom properties.",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "homepage": "https://github.com/davidfriscia/qavo-fe",
   "peerDependencies": {
     "@angular/common": "^21.2.0",

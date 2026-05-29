@@ -2,7 +2,7 @@
   "name": "@qavo/auth-registration",
   "version": "0.0.0",
   "description": "Qavo registration plugin — themed, accessible self-service sign-up flow that self-registers with the platform.",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "homepage": "https://github.com/davidfriscia/qavo-fe",
   "peerDependencies": {
     "@angular/common": "^21.2.0",

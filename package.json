@@ -2,7 +2,7 @@
   "name": "qavo-fe",
   "version": "0.0.0",
   "description": "Qavo Frontend — a reusable, plugin-oriented Angular application platform.",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "private": true,
   "packageManager": "npm@10.9.3",
   "scripts": {

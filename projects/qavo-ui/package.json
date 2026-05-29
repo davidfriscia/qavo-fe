@@ -2,7 +2,7 @@
   "name": "@qavo/ui",
   "version": "0.0.0",
   "description": "Qavo UI — accessible, responsive, token-driven Angular primitives and layout system.",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "homepage": "https://github.com/davidfriscia/qavo-fe",
   "peerDependencies": {
     "@angular/cdk": "^21.2.0",
