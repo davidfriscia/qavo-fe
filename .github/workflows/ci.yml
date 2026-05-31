@@ -1,0 +1,82 @@
+name: CI
+
+# Pull-request and main-branch validation: install once, build every library in
+# dependency order, build the reference app, run unit tests, and exercise the
+# Playwright smoke suite. Mirrors the contract release.yml relies on, so any tag
+# that triggers a publish has already passed this gate on its source ref.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Build & unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Build libraries (dependency order)
+        run: npm run build:libs
+
+      - name: Build reference app
+        run: npm run build:app
+
+      - name: Unit tests
+        run: npm test -- --watch=false
+
+  e2e:
+    name: Playwright (smoke)
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Build libraries
+        run: npm run build:libs
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run E2E smoke suite
+        env:
+          CI: 'true'
+        run: npx playwright test --project=desktop
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 7

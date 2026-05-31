@@ -14,6 +14,10 @@ earlier one rather than editing it.
 | [0006](0006-component-library-choice.md) | Angular Material (+ CDK) as the optional component library | Accepted |
 | [0007](0007-state-management.md) | Signals-first state; NgRx only when justified | Accepted |
 | [0008](0008-component-design-philosophy.md) | Standalone, token-driven, accessible component design | Accepted |
+| [0009](0009-release-automation.md) | Tag-triggered npm publishing with provenance | Accepted |
+| [0010](0010-oidc-abstraction-completion.md) | OIDC strategy completed via composed, replaceable seams | Accepted |
+| [0011](0011-token-doc-generation.md) | Token reference generated from a typed catalog | Accepted |
+| [0012](0012-test-baseline-strategy.md) | Unit-test baseline: invariants over coverage percentage | Accepted |
 
 These records implement the frontend choices of the reference architecture
 (<https://github.com/davidfriscia/qavo>, §2.2, §5, §6).

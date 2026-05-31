@@ -1,6 +1,6 @@
 {
   "name": "@qavo/auth-login",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Qavo login plugin — themed, accessible login flow that self-registers with the platform.",
   "license": "MIT",
   "homepage": "https://github.com/davidfriscia/qavo-fe",
@@ -9,8 +9,8 @@
     "@angular/core": "^21.2.0",
     "@angular/forms": "^21.2.0",
     "@angular/router": "^21.2.0",
-    "@qavo/core": "^0.0.0",
-    "@qavo/ui": "^0.0.0",
+    "@qavo/core": "^0.1.0",
+    "@qavo/ui": "^0.1.0",
     "rxjs": "^7.8.0"
   },
   "dependencies": {

@@ -25,6 +25,12 @@ export interface AuthCredentials {
   readonly password: string;
 }
 
+/** Result of completing an OIDC redirect: a fresh session and where to land. */
+export interface OidcCallbackResult {
+  readonly session: QavoSession;
+  readonly returnUrl: string | null;
+}
+
 /**
  * Pluggable authentication strategy.
  *
@@ -45,8 +51,13 @@ export interface AuthStrategy {
   /** Begin an interactive redirect login (OIDC Authorization Code + PKCE). */
   loginRedirect?(targetUrl?: string): void;
 
-  /** Complete an interactive login after redirect back to the app. */
-  completeRedirect?(): Observable<QavoSession>;
+  /**
+   * Complete an interactive login after the IdP redirects back to the
+   * application. Receives the `code` / `state` parameters parsed from the
+   * callback URL and resolves to the new session plus the original
+   * `returnUrl` the strategy stored before the authorize redirect.
+   */
+  completeRedirect?(callback: { code: string; state: string }): Observable<OidcCallbackResult>;
 
   logout(): Observable<void>;
 

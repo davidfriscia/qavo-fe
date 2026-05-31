@@ -3,12 +3,44 @@ import { AuthStrategy } from './auth-models';
 
 export type AuthStrategyId = 'local' | 'oidc' | 'hybrid';
 
-/** OIDC provider configuration (any standard OIDC/OAuth2 provider). */
+/**
+ * Provider-agnostic OIDC configuration.
+ *
+ * Designed so a deployment can typically supply only `issuerUri` and
+ * `clientId`; the strategy resolves authorization/token endpoints by
+ * convention (`<issuer>/authorize`, `<issuer>/token`, `<issuer>/end_session`)
+ * and lets explicit fields override that resolution when the IdP exposes
+ * non-standard paths.
+ */
 export interface OidcConfig {
+  /** Issuer (provider) base URL, e.g. `https://login.example.com/realms/qavo`. */
   issuerUri: string;
+  /** Public client id registered with the IdP. */
   clientId: string;
+  /** Callback URL the IdP redirects to. Defaults to `<origin>/auth/callback`. */
   redirectUri?: string;
+  /** Scopes requested. Defaults to `['openid', 'profile', 'email']`. */
   scopes?: string[];
+  /** Explicit authorization endpoint (overrides the issuer-based convention). */
+  authorizationEndpoint?: string;
+  /** Explicit token endpoint (overrides the issuer-based convention). */
+  tokenEndpoint?: string;
+  /** Explicit end-session endpoint, called on logout when present. */
+  endSessionEndpoint?: string;
+  /** Where the IdP should send the user after end-session. Defaults to `<origin>/`. */
+  postLogoutRedirectUri?: string;
+  /**
+   * Schedule a refresh-token grant a short window before the access token
+   * expires. Defaults to `true` when the IdP issues refresh tokens.
+   */
+  silentRenewal?: boolean;
+  /** Seconds before expiry to attempt silent renewal. Defaults to `60`. */
+  renewalLeewaySeconds?: number;
+  /**
+   * Callback path mounted by {@link provideOidcCallbackRoute}.
+   * Defaults to `auth/callback`.
+   */
+  callbackPath?: string;
 }
 
 export interface QavoAuthConfig {

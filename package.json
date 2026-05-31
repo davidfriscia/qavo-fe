@@ -1,6 +1,6 @@
 {
   "name": "qavo-fe",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Qavo Frontend — a reusable, plugin-oriented Angular application platform.",
   "license": "MIT",
   "private": true,
@@ -14,7 +14,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "e2e": "playwright test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "docs:tokens": "ng build qavo-theming && node scripts/generate-token-docs.mjs"
   },
   "dependencies": {
     "@angular/cdk": "^21.2.0",

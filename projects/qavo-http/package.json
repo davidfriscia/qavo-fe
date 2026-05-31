@@ -1,13 +1,13 @@
 {
   "name": "@qavo/http",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Qavo HTTP infrastructure — composable interceptors for base URL, auth, trace correlation, error mapping and resilience.",
   "license": "MIT",
   "homepage": "https://github.com/davidfriscia/qavo-fe",
   "peerDependencies": {
     "@angular/common": "^21.2.0",
     "@angular/core": "^21.2.0",
-    "@qavo/core": "^0.0.0",
+    "@qavo/core": "^0.1.0",
     "rxjs": "^7.8.0"
   },
   "dependencies": {

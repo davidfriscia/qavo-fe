@@ -1,6 +1,6 @@
 {
   "name": "@qavo/core",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Qavo core platform — bootstrap, configuration, plugin registry, error handling, auth abstraction and routing conventions.",
   "license": "MIT",
   "homepage": "https://github.com/davidfriscia/qavo-fe",
@@ -8,7 +8,7 @@
     "@angular/common": "^21.2.0",
     "@angular/core": "^21.2.0",
     "@angular/router": "^21.2.0",
-    "@qavo/theming": "^0.0.0",
+    "@qavo/theming": "^0.1.0",
     "rxjs": "^7.8.0"
   },
   "dependencies": {

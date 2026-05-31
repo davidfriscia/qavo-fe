@@ -1,6 +1,6 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { AuthCredentials, QavoSession } from './auth-models';
+import { Observable, map, tap } from 'rxjs';
+import { AuthCredentials, OidcCallbackResult, QavoSession } from './auth-models';
 import { QAVO_AUTH_STRATEGY } from './auth-config';
 
 /**
@@ -44,6 +44,20 @@ export class AuthService {
   /** Begin an interactive redirect login (OIDC). */
   loginRedirect(targetUrl?: string): void {
     this.strategy.loginRedirect?.(targetUrl);
+  }
+
+  /**
+   * Complete an interactive login after redirect back to the app.
+   * Returns the original return URL the strategy persisted across the redirect.
+   */
+  completeRedirect(callback: { code: string; state: string }): Observable<string | null> {
+    if (!this.strategy.completeRedirect) {
+      throw new Error(`Strategy '${this.strategy.id}' does not support redirect login.`);
+    }
+    return this.strategy.completeRedirect(callback).pipe(
+      tap((result: OidcCallbackResult) => this.sessionSignal.set(result.session)),
+      map((result) => result.returnUrl),
+    );
   }
 
   logout(): Observable<void> {

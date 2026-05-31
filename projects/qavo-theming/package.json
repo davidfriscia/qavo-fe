@@ -1,6 +1,6 @@
 {
   "name": "@qavo/theming",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Qavo theming engine — token-based, runtime-switchable themes built on CSS custom properties.",
   "license": "MIT",
   "homepage": "https://github.com/davidfriscia/qavo-fe",

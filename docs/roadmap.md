@@ -1,31 +1,27 @@
 # Roadmap & TODO
 
-Prioritized plan for evolving Qavo Frontend from the current `0.0.0` foundation.
+Prioritized plan for evolving Qavo Frontend. The current `0.1.0` release closes
+out the P0 “credible foundation” slice; this document tracks what comes next.
 Status reflects the [capabilities matrix](capabilities-matrix.md).
 
 **Legend:** ✅ implemented · 🟡 partial · ⬜ planned.
 
 ---
 
-## Implemented (the `0.0.0` foundation)
+## Implemented (through `0.1.0`)
 
 - ✅ Angular 21 monorepo with seven `@qavo/*` libraries + reference app.
-- ✅ `@qavo/theming`: token contract, light/dark themes, runtime switching, custom themes.
+- ✅ `@qavo/theming`: token contract, light/dark themes, runtime switching, custom themes, auto-generated [token reference](token-reference.md).
 - ✅ `@qavo/core`: `provideQavo`, config, plugin registry, feature flags, RFC 9457 errors, global `ErrorHandler`, structured logging + trace, auth abstraction, guards, `*qavoHasPermission`, routing helpers.
+- ✅ `@qavo/core` OIDC: PKCE Authorization Code flow end-to-end — pluggable token client, session-storage state store, callback component/route, silent renewal scheduler.
 - ✅ `@qavo/http`: base-url / auth / trace / error / retry interceptors, tunable resilience.
 - ✅ `@qavo/ui`: breakpoint service, layout primitives, adaptive shell, components, forms & validation, toasts & dialogs, a11y helpers.
 - ✅ `@qavo/auth-login` and `@qavo/auth-registration` plugins.
-- ✅ `@qavo/testing`: harness, mocks, fixtures; example unit + E2E specs.
+- ✅ `@qavo/testing`: harness, mocks, fixtures; baseline unit-test suite across every library.
+- ✅ CI on every push/PR (build, unit, smoke E2E) and tag-triggered npm publishing with provenance — see [release process](releasing.md).
 - ✅ Reference app demonstrating composition, theming, plugins, error handling, OpenAPI client.
 
 ---
-
-## P0 — toward a credible `0.1.0`
-
-- 🟡 **CI & publishing pipeline.** Tag-triggered build → test → lint → publish to npm under `@qavo`, SemVer, changelogs. *(Packaging ready; automation pending.)*
-- 🟡 **OIDC completion.** Pluggable PKCE code-exchange client behind `QAVO_AUTH_STRATEGY`; callback route handling; silent renewal.
-- ⬜ **Unit-test pass across all libraries.** Bring every package to a meaningful coverage baseline; wire `ng test` into CI.
-- ⬜ **Token contract documentation generator.** Emit a reference table of every token (the FE counterpart to the backend `qavo.yml`).
 
 ## P1 — depth & breadth
 

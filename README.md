@@ -14,7 +14,7 @@ specification lives in the backend repository:
 <https://github.com/davidfriscia/qavo>. This repository (`qavo-fe`) implements the
 frontend side of that architecture (§2.2, §5, §6, §7.2).
 
-**Version:** `0.0.0` · **Status:** early foundation (see the maturity disclaimer
+**Version:** `0.1.0` · **Status:** pre-1.0 platform (see the maturity disclaimer
 below).
 
 ---
@@ -153,15 +153,18 @@ others (e.g. `@qavo/http` → `@qavo/core` → `@qavo/theming`), build order mat
 ## Building & publishing
 
 Each package is independently versioned and tree-shakeable, exposes a clean public
-API (`public-api.ts`), and is built with **ng-packagr**. Packages are prepared for
-future publication to the public npm registry under the `@qavo` scope. Inter-package
-dependencies are declared as **peer dependencies**, so an application controls a
-single copy of Angular and of each Qavo package. See
-[ADR&nbsp;0002](docs/adr/0002-monorepo-and-packaging.md).
+API (`public-api.ts`), and is built with **ng-packagr**. Inter-package dependencies
+are declared as **peer dependencies**, so an application controls a single copy of
+Angular and of each Qavo package. See
+[ADR 0002](docs/adr/0002-monorepo-and-packaging.md).
 
-> Publishing is not wired into CI yet (see the roadmap). When it is, releases will
-> be tag-triggered and follow Semantic Versioning, consistent with the platform
-> versioning contract.
+Releases are **tag-triggered**: pushing a `vX.Y.Z` tag runs the workflow in
+[`.github/workflows/release.yml`](.github/workflows/release.yml), which verifies
+that every `@qavo/*` `package.json` declares the same version, builds and tests
+the libraries, publishes each one to npm with provenance under the `@qavo` scope,
+and creates a matching GitHub Release. Pre-1.0 packages are released in
+lockstep. See [docs/releasing.md](docs/releasing.md) for the maintainer workflow
+and [ADR 0009](docs/adr/0009-release-automation.md) for the rationale.
 
 ---
 
@@ -171,6 +174,8 @@ single copy of Angular and of each Qavo package. See
 - [Frontend Capabilities Matrix](docs/capabilities-matrix.md) — every centralized concern, its maturity, and known limitations.
 - [Roadmap & TODO](docs/roadmap.md) — implemented / partial / planned, prioritized.
 - [Best Practices](docs/best-practices.md) — plugins, theming, responsive, a11y, testing, performance, anti-patterns.
+- [Token Reference](docs/token-reference.md) — every CSS custom property `@qavo/theming` exposes, auto-generated from the typed contract.
+- [Release Process](docs/releasing.md) — versioning, tagging and the publish pipeline.
 - [Architecture Decision Records](docs/adr/) — the significant choices and their rationale.
 
 ---
@@ -178,10 +183,11 @@ single copy of Angular and of each Qavo package. See
 ## Roadmap (high level)
 
 Implemented foundation: theming engine, core bootstrap, HTTP stack, UI primitives,
-auth abstraction + two plugins, testing utilities, reference app. Planned: SSR
-mode, more plugins (user management, notifications, file storage), CI publishing
-pipeline, expanded component set and a11y audits. The detailed, prioritized list is
-in the [roadmap](docs/roadmap.md).
+auth abstraction + two plugins, testing utilities, reference app, end-to-end OIDC
+Authorization Code + PKCE flow, CI + tag-triggered npm publishing, token
+reference generator, baseline unit-test suite. Planned: SSR mode, more plugins
+(user management, notifications, file storage), expanded component set and a11y
+audits. The detailed, prioritized list is in the [roadmap](docs/roadmap.md).
 
 ---
 
@@ -196,14 +202,15 @@ change is understood, tested and owned by a human reviewer (architecture §12).
 
 ## Maturity disclaimer
 
-Qavo Frontend is at version **`0.0.0`** — an **early foundation**. The architecture,
-extension points and public APIs are in place and the workspace builds end to end,
-but the platform is **not yet production-ready**: APIs may change before `1.0.0`,
-some capabilities are intentionally simplified (notably the OIDC code exchange and
-the publishing pipeline), and broad real-world validation is still pending. Treat it
-as a reference implementation and a starting point, not a finished product. See the
-[capabilities matrix](docs/capabilities-matrix.md) for the precise, per-feature
-status.
+Qavo Frontend is at version **`0.1.0`** — an **early but credible foundation**. The
+architecture, extension points and public APIs are in place; the workspace builds
+end to end; CI runs unit and smoke tests on every change; releases publish to npm
+from a tag. The platform is **not yet production-ready**: APIs may still change
+before `1.0.0`, the OIDC strategy is provider-agnostic but has not been validated
+against every IdP in the wild, and broad real-world usage is still pending. Treat
+it as a reference implementation and a starting point, not a finished product.
+See the [capabilities matrix](docs/capabilities-matrix.md) for the precise,
+per-feature status.
 
 ---
 

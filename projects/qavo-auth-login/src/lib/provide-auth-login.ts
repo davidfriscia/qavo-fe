@@ -26,7 +26,7 @@ export function provideAuthLogin(config: Partial<AuthLoginConfig> = {}): Environ
   ];
 
   return provideQavoPlugin({
-    plugin: { id: 'auth-login', version: '0.0.0', description: 'Local login flow.' },
+    plugin: { id: 'auth-login', version: '0.1.0', description: 'Local login flow.' },
     providers: [{ provide: AUTH_LOGIN_CONFIG, useValue: merged }],
     routes,
   });

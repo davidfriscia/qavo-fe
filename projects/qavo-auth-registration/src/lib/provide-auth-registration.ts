@@ -32,7 +32,7 @@ export function provideAuthRegistration(
   return provideQavoPlugin({
     plugin: {
       id: 'auth-registration',
-      version: '0.0.0',
+      version: '0.1.0',
       description: 'Self-service registration flow.',
     },
     providers: [

@@ -7,6 +7,7 @@
 
 // Token contract
 export * from './lib/tokens/token-contract';
+export * from './lib/tokens/token-catalog';
 export * from './lib/tokens/breakpoints';
 export {
   QAVO_TOKEN_PREFIX,
